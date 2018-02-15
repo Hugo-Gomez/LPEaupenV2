@@ -7,14 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		298E345CDCB5666807047567 /* Pods_EaupenV2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 246C2DA97A90687F7005E72C /* Pods_EaupenV2.framework */; };
 		DC1CAD5B2035C0E700A0940A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CAD5A2035C0E700A0940A /* AppDelegate.swift */; };
 		DC1CAD5D2035C0E700A0940A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CAD5C2035C0E700A0940A /* ViewController.swift */; };
 		DC1CAD602035C0E700A0940A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD5E2035C0E700A0940A /* Main.storyboard */; };
 		DC1CAD622035C0E700A0940A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD612035C0E700A0940A /* Assets.xcassets */; };
 		DC1CAD652035C0E700A0940A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD632035C0E700A0940A /* LaunchScreen.storyboard */; };
+		DC32A6422035CD9B00CDBDA2 /* Amenity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6412035CD9B00CDBDA2 /* Amenity.swift */; };
+		DC32A6442035D07A00CDBDA2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6432035D07A00CDBDA2 /* Location.swift */; };
+		DC32A6462035D09F00CDBDA2 /* PostalAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */; };
+		DC32A6482035D0CD00CDBDA2 /* AmenityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6472035D0CD00CDBDA2 /* AmenityClient.swift */; };
+		DC32A64A2035D0E900CDBDA2 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6492035D0E900CDBDA2 /* Annotation.swift */; };
+		DC32A64C2035D12000CDBDA2 /* Locator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A64B2035D12000CDBDA2 /* Locator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03163E11DF526E757BB17449 /* Pods-EaupenV2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EaupenV2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EaupenV2/Pods-EaupenV2.debug.xcconfig"; sourceTree = "<group>"; };
+		246C2DA97A90687F7005E72C /* Pods_EaupenV2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EaupenV2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C5EE7A9080134A3009346AC /* Pods-EaupenV2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EaupenV2.release.xcconfig"; path = "Pods/Target Support Files/Pods-EaupenV2/Pods-EaupenV2.release.xcconfig"; sourceTree = "<group>"; };
 		DC1CAD572035C0E700A0940A /* EaupenV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EaupenV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1CAD5A2035C0E700A0940A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC1CAD5C2035C0E700A0940A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +32,12 @@
 		DC1CAD612035C0E700A0940A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC1CAD642035C0E700A0940A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC1CAD662035C0E700A0940A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC32A6412035CD9B00CDBDA2 /* Amenity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenity.swift; sourceTree = "<group>"; };
+		DC32A6432035D07A00CDBDA2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalAddress.swift; sourceTree = "<group>"; };
+		DC32A6472035D0CD00CDBDA2 /* AmenityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenityClient.swift; sourceTree = "<group>"; };
+		DC32A6492035D0E900CDBDA2 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		DC32A64B2035D12000CDBDA2 /* Locator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				298E345CDCB5666807047567 /* Pods_EaupenV2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		845EBCE4149D0A8B5734AC3F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03163E11DF526E757BB17449 /* Pods-EaupenV2.debug.xcconfig */,
+				7C5EE7A9080134A3009346AC /* Pods-EaupenV2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A5895A03E7F56F3562386D4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				246C2DA97A90687F7005E72C /* Pods_EaupenV2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC1CAD4E2035C0E700A0940A = {
 			isa = PBXGroup;
 			children = (
 				DC1CAD592035C0E700A0940A /* EaupenV2 */,
 				DC1CAD582035C0E700A0940A /* Products */,
+				845EBCE4149D0A8B5734AC3F /* Pods */,
+				A5895A03E7F56F3562386D4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +96,12 @@
 				DC1CAD612035C0E700A0940A /* Assets.xcassets */,
 				DC1CAD632035C0E700A0940A /* LaunchScreen.storyboard */,
 				DC1CAD662035C0E700A0940A /* Info.plist */,
+				DC32A6412035CD9B00CDBDA2 /* Amenity.swift */,
+				DC32A6472035D0CD00CDBDA2 /* AmenityClient.swift */,
+				DC32A6492035D0E900CDBDA2 /* Annotation.swift */,
+				DC32A64B2035D12000CDBDA2 /* Locator.swift */,
+				DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */,
+				DC32A6432035D07A00CDBDA2 /* Location.swift */,
 			);
 			path = EaupenV2;
 			sourceTree = "<group>";
@@ -71,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC1CAD692035C0E700A0940A /* Build configuration list for PBXNativeTarget "EaupenV2" */;
 			buildPhases = (
+				58D754BB41B2368E1D01A6A7 /* [CP] Check Pods Manifest.lock */,
 				DC1CAD532035C0E700A0940A /* Sources */,
 				DC1CAD542035C0E700A0940A /* Frameworks */,
 				DC1CAD552035C0E700A0940A /* Resources */,
+				9374F0B6BBF924682C4176CC /* [CP] Embed Pods Frameworks */,
+				BBAB7434C235895235DCAB28 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +176,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		58D754BB41B2368E1D01A6A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EaupenV2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9374F0B6BBF924682C4176CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EaupenV2/Pods-EaupenV2-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EaupenV2/Pods-EaupenV2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBAB7434C235895235DCAB28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EaupenV2/Pods-EaupenV2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC1CAD532035C0E700A0940A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DC1CAD5D2035C0E700A0940A /* ViewController.swift in Sources */,
+				DC32A6462035D09F00CDBDA2 /* PostalAddress.swift in Sources */,
+				DC32A6482035D0CD00CDBDA2 /* AmenityClient.swift in Sources */,
 				DC1CAD5B2035C0E700A0940A /* AppDelegate.swift in Sources */,
+				DC32A64C2035D12000CDBDA2 /* Locator.swift in Sources */,
+				DC32A6442035D07A00CDBDA2 /* Location.swift in Sources */,
+				DC32A64A2035D0E900CDBDA2 /* Annotation.swift in Sources */,
+				DC32A6422035CD9B00CDBDA2 /* Amenity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +377,7 @@
 		};
 		DC1CAD6A2035C0E700A0940A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03163E11DF526E757BB17449 /* Pods-EaupenV2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +392,7 @@
 		};
 		DC1CAD6B2035C0E700A0940A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C5EE7A9080134A3009346AC /* Pods-EaupenV2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

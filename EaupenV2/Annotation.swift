@@ -20,7 +20,7 @@ class Annotation: NSObject, MKAnnotation {
         
         self.amenity = amenity
         self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-        self.title = "\(coordinate.latitude) - \(coordinate.longitude)"
+        self.title = amenity.display_name
         super.init()
     }
     

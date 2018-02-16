@@ -19,6 +19,13 @@ class ViewController: UIViewController, LocatorDelegate, AmenityClient {
     
     func locator(_ locator: Locator, didUpdateLocation location: CLLocation) {
         print("Location succeded")
+        let alertController = UIAlertController(title: "Location succeded", message: "", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true)
+        self.setMapView(center: location.coordinate)
+        self.setAmenities(coordinates: location.coordinate)
+        return
     }
     
     func initData() {
@@ -37,18 +44,27 @@ class ViewController: UIViewController, LocatorDelegate, AmenityClient {
         }
     }
     
+    func setMapView(center: CLLocationCoordinate2D) {
+        let camera = MKMapCamera(lookingAtCenter: center, fromEyeCoordinate: center, eyeAltitude: 2000.0)
+        mapView.setCamera(camera, animated: false)
+    }
+    
     
     @IBAction func locate(_ sender: Any) {
         print("Start Location..")
+        self.clearAnnotations()
         Locator.shared.start(delegate: self)
+    }
+    
+    func clearAnnotations() {
+        mapView.removeAnnotations(mapView.annotations)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setAmenities(coordinates: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
-        let center = CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265)
-        let camera = MKMapCamera(lookingAtCenter: center, fromEyeCoordinate: center, eyeAltitude: 2000.0)
-        mapView.setCamera(camera, animated: false)
+        self.setMapView(center: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
+        mapView.showsUserLocation = true
     }
 
     override func didReceiveMemoryWarning() {

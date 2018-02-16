@@ -20,6 +20,12 @@ class Amenity: Decodable {
     var loc: Location?
     var postal_address: PostalAddress?
     var dist: Double?
+    var display_name: String {
+        guard let address = postal_address?.address else {
+            return ""
+        }
+        return address
+    }
     
     var description: String {
         guard let lat = loc?.lat, let lon = loc?.lon else {

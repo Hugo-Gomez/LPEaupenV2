@@ -14,6 +14,7 @@
 		DC1CAD622035C0E700A0940A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD612035C0E700A0940A /* Assets.xcassets */; };
 		DC1CAD652035C0E700A0940A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD632035C0E700A0940A /* LaunchScreen.storyboard */; };
 		DC2259672074C36800DCEBED /* AmenityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2259662074C36800DCEBED /* AmenityViewController.swift */; };
+		DC225969207507D900DCEBED /* AmenityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC225968207507D900DCEBED /* AmenityService.swift */; };
 		DC32A6422035CD9B00CDBDA2 /* Amenity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6412035CD9B00CDBDA2 /* Amenity.swift */; };
 		DC32A6442035D07A00CDBDA2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6432035D07A00CDBDA2 /* Location.swift */; };
 		DC32A6462035D09F00CDBDA2 /* PostalAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */; };
@@ -34,6 +35,7 @@
 		DC1CAD642035C0E700A0940A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC1CAD662035C0E700A0940A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC2259662074C36800DCEBED /* AmenityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenityViewController.swift; sourceTree = "<group>"; };
+		DC225968207507D900DCEBED /* AmenityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenityService.swift; sourceTree = "<group>"; };
 		DC32A6412035CD9B00CDBDA2 /* Amenity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenity.swift; sourceTree = "<group>"; };
 		DC32A6432035D07A00CDBDA2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalAddress.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				DC1CAD662035C0E700A0940A /* Info.plist */,
 				DC32A6412035CD9B00CDBDA2 /* Amenity.swift */,
 				DC32A6472035D0CD00CDBDA2 /* AmenityClient.swift */,
+				DC225968207507D900DCEBED /* AmenityService.swift */,
 				DC32A6492035D0E900CDBDA2 /* Annotation.swift */,
 				DC32A64B2035D12000CDBDA2 /* Locator.swift */,
 				DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */,
@@ -206,10 +209,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EaupenV2/Pods-EaupenV2-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -247,6 +254,7 @@
 				DC32A6442035D07A00CDBDA2 /* Location.swift in Sources */,
 				DC32A64A2035D0E900CDBDA2 /* Annotation.swift in Sources */,
 				DC32A6422035CD9B00CDBDA2 /* Amenity.swift in Sources */,
+				DC225969207507D900DCEBED /* AmenityService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

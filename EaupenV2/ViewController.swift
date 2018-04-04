@@ -9,11 +9,17 @@
 import UIKit
 import CoreLocation
 import MapKit
+import RxSwift
 
-class ViewController: UIViewController, LocatorDelegate, AmenityClient {
-    var amenities: [Amenity]? {
-        didSet { DispatchQueue.main.async(execute : { self.initData() }) }
-    }
+class ViewController: UIViewController, LocatorDelegate {
+    
+//    var amenities: [Amenity]? {
+//        didSet { DispatchQueue.main.async(execute : { self.initData() }) }
+//    }
+    
+    var amenities: [Amenity]?
+    
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var mapView: MKMapView!
     

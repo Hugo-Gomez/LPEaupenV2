@@ -78,7 +78,45 @@ class ViewController: UIViewController, LocatorDelegate, AmenityClient {
         defaults.set(coordinate.latitude, forKey: "latitude")
         defaults.set(coordinate.longitude, forKey: "longitude")
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showAmenity", let amenity = sender as? Amenity else { return }
+        
+        let controller = segue.destination as! AmenityViewController
+        controller.amenity = amenity
+    }
+    
 }
+    
+extension ViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotations: MKAnnotation) -> MKAnnotationView? {
+        
+        switch annotations {
+            
+        case is MKUserLocation:
+            return nil
+        
+        case is Annotation:
+            let view = MKPinAnnotationView(annotation: annotations, reuseIdentifier: nil)
+            view.canShowCallout = true
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            return view
+            
+        default:
+            return nil
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard
+            control == view.rightCalloutAccessoryView,
+            let annotation = view.annotation as? Annotation
+        else { return }
+        
+        let amenity = annotation.amenity
+        self.performSegue(withIdentifier: "showAmenity", sender: amenity)
+    }
+}
+
 

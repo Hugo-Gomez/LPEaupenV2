@@ -13,6 +13,7 @@
 		DC1CAD602035C0E700A0940A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD5E2035C0E700A0940A /* Main.storyboard */; };
 		DC1CAD622035C0E700A0940A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD612035C0E700A0940A /* Assets.xcassets */; };
 		DC1CAD652035C0E700A0940A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC1CAD632035C0E700A0940A /* LaunchScreen.storyboard */; };
+		DC2259672074C36800DCEBED /* AmenityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2259662074C36800DCEBED /* AmenityViewController.swift */; };
 		DC32A6422035CD9B00CDBDA2 /* Amenity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6412035CD9B00CDBDA2 /* Amenity.swift */; };
 		DC32A6442035D07A00CDBDA2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6432035D07A00CDBDA2 /* Location.swift */; };
 		DC32A6462035D09F00CDBDA2 /* PostalAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */; };
@@ -32,6 +33,7 @@
 		DC1CAD612035C0E700A0940A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC1CAD642035C0E700A0940A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC1CAD662035C0E700A0940A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC2259662074C36800DCEBED /* AmenityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenityViewController.swift; sourceTree = "<group>"; };
 		DC32A6412035CD9B00CDBDA2 /* Amenity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenity.swift; sourceTree = "<group>"; };
 		DC32A6432035D07A00CDBDA2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalAddress.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				DC32A64B2035D12000CDBDA2 /* Locator.swift */,
 				DC32A6452035D09F00CDBDA2 /* PostalAddress.swift */,
 				DC32A6432035D07A00CDBDA2 /* Location.swift */,
+				DC2259662074C36800DCEBED /* AmenityViewController.swift */,
 			);
 			path = EaupenV2;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				DC1CAD5D2035C0E700A0940A /* ViewController.swift in Sources */,
 				DC32A6462035D09F00CDBDA2 /* PostalAddress.swift in Sources */,
 				DC32A6482035D0CD00CDBDA2 /* AmenityClient.swift in Sources */,
+				DC2259672074C36800DCEBED /* AmenityViewController.swift in Sources */,
 				DC1CAD5B2035C0E700A0940A /* AppDelegate.swift in Sources */,
 				DC32A64C2035D12000CDBDA2 /* Locator.swift in Sources */,
 				DC32A6442035D07A00CDBDA2 /* Location.swift in Sources */,
@@ -381,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99K6ASP53C;
 				INFOPLIST_FILE = EaupenV2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hugo-Gomez.EaupenV2";
@@ -396,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 99K6ASP53C;
 				INFOPLIST_FILE = EaupenV2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hugo-Gomez.EaupenV2";

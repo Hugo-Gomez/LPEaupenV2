@@ -14,4 +14,8 @@ class PostalAddress: Decodable {
     var postcode: String?
     var city: String?
     
+    var description: String {
+        return "\(address ?? "") - \(postcode ?? "") - \(city ?? "")"
+    }
+    
 }

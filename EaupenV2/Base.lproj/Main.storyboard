@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" title="EaupenV2" id="jiu-eq-d5W">
                         <barButtonItem key="rightBarButtonItem" title="Localize Me" id="rcd-7E-sGE">
                             <connections>
-                                <action selector="locate:" destination="BYZ-38-t0r" id="10H-vg-j6T"/>
+                                <action selector="localizeAction:" destination="BYZ-38-t0r" id="sv3-Ek-8M1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -8,11 +8,14 @@
 
 import Foundation
 import CoreLocation
+import RxSwift
 
 class Locator: NSObject, CLLocationManagerDelegate {
     
     let manager = CLLocationManager()
-    var delegate: LocatorDelegate?
+//    var delegate: LocatorDelegate?
+    
+    let locationSubject = PublishSubject<CLLocation>()
     
     static var shared = Locator()
     
@@ -21,8 +24,7 @@ class Locator: NSObject, CLLocationManagerDelegate {
         manager.delegate = self
     }
     
-    func start(delegate: LocatorDelegate) {
-        self.delegate = delegate
+    func start() {
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined: manager.requestWhenInUseAuthorization()
         case .denied: break
@@ -31,6 +33,17 @@ class Locator: NSObject, CLLocationManagerDelegate {
         case .authorizedAlways: break
         }
     }
+    
+//    func start(delegate: LocatorDelegate) {
+//        self.delegate = delegate
+//        switch CLLocationManager.authorizationStatus() {
+//        case .notDetermined: manager.requestWhenInUseAuthorization()
+//        case .denied: break
+//        case .restricted: break
+//        case .authorizedWhenInUse: locate()
+//        case .authorizedAlways: break
+//        }
+//    }
     
     func locate() {
         manager.startUpdatingLocation()
@@ -48,13 +61,17 @@ class Locator: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         manager.stopUpdatingLocation()
-        if let location = locations.last, let delegate = self.delegate {
-            delegate.locator(self, didUpdateLocation: location)
+//        if let location = locations.last, let delegate = self.delegate {
+//            delegate.locator(self, didUpdateLocation: location)
+//        }
+        if let location = locations.last {
+            locationSubject.onNext(location)
         }
     }
     
 }
 
-protocol LocatorDelegate{
-    func locator(_ locator: Locator, didUpdateLocation location: CLLocation)
-}
+//protocol LocatorDelegate{
+//    func locator(_ locator: Locator, didUpdateLocation location: CLLocation)
+//}
+

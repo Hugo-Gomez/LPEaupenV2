@@ -11,13 +11,15 @@ import CoreLocation
 import MapKit
 import RxSwift
 
-class ViewController: UIViewController, LocatorDelegate {
+class ViewController: UIViewController {
     
 //    var amenities: [Amenity]? {
 //        didSet { DispatchQueue.main.async(execute : { self.initData() }) }
 //    }
     
     var amenities: [Amenity]?
+    
+    let mapDidChange = PublishSubject<Bool>()
     
     let disposeBag = DisposeBag()
     
@@ -74,13 +76,6 @@ class ViewController: UIViewController, LocatorDelegate {
         }
     }
     
-    
-    @IBAction func locate(_ sender: Any) {
-        print("Start Location..")
-        self.clearAnnotations()
-        Locator.shared.start(delegate: self)
-    }
-    
     func clearAnnotations() {
         mapView.removeAnnotations(mapView.annotations)
     }
@@ -89,12 +84,27 @@ class ViewController: UIViewController, LocatorDelegate {
         super.viewDidLoad()
 //        self.setAmenities(coordinates: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
         self.setupCoordinate(coordinate: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
-        mapView.showsUserLocation = true
+//        mapView.showsUserLocation = true
+        
+        mapDidChange
+            .subscribe(onNext: { _ in
+                print("mapDidChange")
+            })
+            .disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func localizeAction(_ sender: Any) {
+        _ = Locator.shared.locationSubject
+            .take(1)
+            .subscribe(onNext: { location in
+                self.setupCoordinate(coordinate: location.coordinate)
+                self.saveUserLocation(coordinate: location.coordinate)
+            })
     }
     
     func saveUserLocation(coordinate: CLLocationCoordinate2D) {
@@ -141,6 +151,10 @@ extension ViewController: MKMapViewDelegate {
         
         let amenity = annotation.amenity
         self.performSegue(withIdentifier: "showAmenity", sender: amenity)
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        mapDidChange.onNext(animated)
     }
 }
 

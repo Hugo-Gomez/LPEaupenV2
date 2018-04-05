@@ -13,7 +13,7 @@ import RxSwift
 
 class AmenityService {
     
-    static var share = AmenityService()
+    static var shared = AmenityService()
     
     func amenities(coordinate: CLLocationCoordinate2D) -> Observable <[Amenity]> {
         return Observable.create({ observer in
@@ -38,6 +38,8 @@ class AmenityService {
                             let amenities = try? JSONDecoder().decode([Amenity].self, from: data) {
                             
                             observer.onNext(amenities)
+                        } else {
+                            observer.onNext([])
                         }
                         
                     case .failure(let error) :

@@ -29,8 +29,8 @@ class ViewController: UIViewController, LocatorDelegate {
         let OKAction = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(OKAction)
         self.present(alertController, animated: true)
-        self.setMapView(center: location.coordinate)
-        self.setAmenities(coordinates: location.coordinate)
+        self.setupCoordinate(coordinate: location.coordinate)
+//        self.setAmenities(coordinates: location.coordinate)
         return
     }
     
@@ -50,9 +50,28 @@ class ViewController: UIViewController, LocatorDelegate {
         }
     }
     
-    func setMapView(center: CLLocationCoordinate2D) {
-        let camera = MKMapCamera(lookingAtCenter: center, fromEyeCoordinate: center, eyeAltitude: 2000.0)
-        mapView.setCamera(camera, animated: false)
+    func setupCoordinate(coordinate: CLLocationCoordinate2D) {
+        DispatchQueue.main.async(execute: {
+            let camera = MKMapCamera(lookingAtCenter: coordinate, fromEyeCoordinate: coordinate, eyeAltitude: 2000.0)
+            self.mapView.setCamera(camera, animated: false)
+        })
+        
+        _ = AmenityService.shared.amenities(coordinate: coordinate)
+            .observeOn(MainScheduler.instance)
+            .take(1)
+            .subscribe(onNext: { amenities in
+                self.amenities = amenities
+                self.reloadAnnotations()
+            }, onError: { error in
+                print("Error: \(error.localizedDescription)")
+            })
+    }
+    
+    func reloadAnnotations() {
+        mapView.removeAnnotations(mapView.annotations)
+        if let annotations = amenities?.flatMap(Annotation.init) {
+            mapView.addAnnotations(annotations)
+        }
     }
     
     
@@ -68,8 +87,8 @@ class ViewController: UIViewController, LocatorDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setAmenities(coordinates: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
-        self.setMapView(center: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
+//        self.setAmenities(coordinates: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
+        self.setupCoordinate(coordinate: CLLocationCoordinate2D(latitude: 48.831034, longitude: 2.355265))
         mapView.showsUserLocation = true
     }
 

@@ -17,7 +17,10 @@ class ViewController: UIViewController {
 //        didSet { DispatchQueue.main.async(execute : { self.initData() }) }
 //    }
     
-    var amenities: [Amenity]?
+    var amenities: [Amenity]? {
+        didSet { DispatchQueue.main.async(execute: { self.initData() })
+        }
+    }
     
     let mapDidChange = PublishSubject<Bool>()
     
@@ -37,6 +40,7 @@ class ViewController: UIViewController {
     }
     
     func initData() {
+        clearAnnotations()
         guard let amenities = self.amenities, amenities.count > 0 else {
             let alertController = UIAlertController(title: "Aucun point d'eau trouvé", message: "", preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default)
@@ -58,15 +62,14 @@ class ViewController: UIViewController {
             self.mapView.setCamera(camera, animated: false)
         })
         
-        _ = AmenityService.shared.amenities(coordinate: coordinate)
-            .observeOn(MainScheduler.instance)
-            .take(1)
-            .subscribe(onNext: { amenities in
-                self.amenities = amenities
-                self.reloadAnnotations()
-            }, onError: { error in
-                print("Error: \(error.localizedDescription)")
-            })
+//        _ = AmenityService.shared.amenities(coordinate: coordinate)
+//            .observeOn(MainScheduler.instance)
+//            .take(1)
+//            .subscribe(onNext: { amenities in
+//                self.amenities = amenities
+//            }, onError: { error in
+//                print("Error: \(error.localizedDescription)")
+//            })
     }
     
     func reloadAnnotations() {
@@ -87,8 +90,11 @@ class ViewController: UIViewController {
 //        mapView.showsUserLocation = true
         
         mapDidChange
-            .subscribe(onNext: { _ in
-                print("mapDidChange")
+            .map({ _ in self.mapView.centerCoordinate})
+            .flatMap(AmenityService.shared.amenities)
+            .subscribe(onNext: { amenities in
+                self.amenities = amenities
+                self.initData()
             })
             .disposed(by: disposeBag)
     }
@@ -105,6 +111,8 @@ class ViewController: UIViewController {
                 self.setupCoordinate(coordinate: location.coordinate)
                 self.saveUserLocation(coordinate: location.coordinate)
             })
+        self.clearAnnotations()
+        Locator.shared.start()
     }
     
     func saveUserLocation(coordinate: CLLocationCoordinate2D) {
@@ -133,7 +141,9 @@ extension ViewController: MKMapViewDelegate {
             return nil
         
         case is Annotation:
-            let view = MKPinAnnotationView(annotation: annotations, reuseIdentifier: nil)
+            //let view = MKPinAnnotationView(annotation: annotations, reuseIdentifier: nil)
+            let view = MKAnnotationView(annotation: annotations, reuseIdentifier: nil)
+            view.image = #imageLiteral(resourceName: "Image")
             view.canShowCallout = true
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             return view

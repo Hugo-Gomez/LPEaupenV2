@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VeM-sA-xaQ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VeM-sA-xaQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="fUG-3t-uiX"/>
@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" title="EaupenV2" id="jiu-eq-d5W">
                         <barButtonItem key="rightBarButtonItem" title="Localize Me" id="rcd-7E-sGE">
                             <connections>
-                                <action selector="localizeAction:" destination="BYZ-38-t0r" id="sv3-Ek-8M1"/>
+                                <action selector="localizeAction:" destination="BYZ-38-t0r" id="5bZ-93-9kl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
